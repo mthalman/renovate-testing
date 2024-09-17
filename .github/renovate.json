@@ -2,8 +2,9 @@
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
   "mode": "full",
-  "regexManagers": [
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["versions.json"],
       "matchStrings": [
         "\"omnisharp\":\\s*\"(?<currentValue>[^\"]+)\""
@@ -13,21 +14,14 @@
       "versioningTemplate": "semver"
     },
     {
+      "customType": "regex",
       "fileMatch": ["^Dockerfile$"],
+      "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "gcc=\"(?<currentValue>.*)\""
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=\\\"(?<currentValue>[a-z0-9-_.]+)\\\"\\s+"
       ],
       "datasourceTemplate": "repology",
-      "depNameTemplate": "alpine_3_12/gcc",
-      "versioningTemplate": "loose"
-    },
-    {
-      "fileMatch": ["^Dockerfile$"],
-      "matchStrings": [
-        "musl-dev=\"(?<currentValue>.*)\""
-      ],
-      "datasourceTemplate": "repology",
-      "depNameTemplate": "alpine_3_12/musl-dev",
+      "depNameTemplate": "alpine_3_12/{{package}}",
       "versioningTemplate": "loose"
     }
   ]
