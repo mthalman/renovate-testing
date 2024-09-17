@@ -18,7 +18,7 @@
       "fileMatch": ["^Dockerfile$"],
       "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=(?<currentValue>[a-z0-9-_.]+)\\\"\\s+"
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=\\\"(?<currentValue>[a-z0-9-_.]+)\\\"\\s+"
       ],
       "datasourceTemplate": "repology",
       "depNameTemplate": "alpine_3_12/{{package}}",
