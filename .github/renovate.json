@@ -15,9 +15,20 @@
     {
       "fileMatch": ["^Dockerfile$"],
       "matchStrings": [
-        "#\\s*renovate:\\s*datasource=(?<datasource>.*?) depName=(?<depName>.*?)( versioning=(?<versioning>.*?))?\\sENV .*?_VERSION=\"(?<currentValue>.*)\"\\s"
+        "gcc=\"(?<currentValue>.*)\""
       ],
-      "versioningTemplate": "{{#if versioning}}{{{versioning}}}{{else}}semver{{/if}}"
+      "datasourceTemplate": "repology",
+      "depNameTemplate": "alpine_3_12/gcc",
+      "versioningTemplate": "loose"
+    },
+    {
+      "fileMatch": ["^Dockerfile$"],
+      "matchStrings": [
+        "musl-dev=\"(?<currentValue>.*)\""
+      ],
+      "datasourceTemplate": "repology",
+      "depNameTemplate": "alpine_3_12/musl-dev",
+      "versioningTemplate": "loose"
     }
   ]
 }
