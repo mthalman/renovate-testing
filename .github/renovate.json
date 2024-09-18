@@ -23,7 +23,7 @@
       "fileMatch": ["^Dockerfile$"],
       "matchStringsStrategy": "recursive",
       "matchStrings": [
-        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=\\\"(?<currentValue>[a-z0-9-_.]+)\\\"\\s+"
+        "\\s\\s(?<package>[a-z0-9][a-z0-9-_]+)=\\\"(?<currentValue>.+)\\\"\\s+"
       ],
       "datasourceTemplate": "repology",
       "depNameTemplate": "debian_12/{{package}}",
