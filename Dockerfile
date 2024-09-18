@@ -1,4 +1,4 @@
-FROM alpine:3.18
+FROM debian:bookworm
 
-RUN apk add --no-cache \
-      ansible-core="2.14.5-r0"
+RUN apt-get install -y \
+      ansible-core="2.14.16-0+deb12u1"
